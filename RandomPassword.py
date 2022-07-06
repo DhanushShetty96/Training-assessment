@@ -4,12 +4,16 @@ import string
 
 s=list(string.ascii_letters+string.digits+"@#$%*&")
 def password_generator():
-    length=int(input('Enter length\n'))
-    random.shuffle(s)
-    password=[]
-    for j in range(length):
+    try:
+        length=int(input('Enter length\n'))
+        random.shuffle(s)
+        password=[]
+        for j in range(length):
+            password.append(random.choice(s))
         random.shuffle(password)
-        password.append(random.choice(s))
-    random.shuffle(password)
-    print("".join(password))
+        print("".join(password))
+    except ValueError :
+        print("input should be integer")
+
+
 password_generator()
